@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: zillow_clone_production
-  username: zillow_clone
-  password: <%= ENV["ZILLOW_CLONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
