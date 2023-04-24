@@ -1,0 +1,27 @@
+{
+  "name": "zillow_clone",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "engines": {
+    "node": "16.x"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilalashc/Zillow_Clone.git"
+  },
+  "keywords": [],
+  "author": "Bilal Choudhry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bilalashc/Zillow_Clone/issues"
+  },
+  "homepage": "https://github.com/bilalashc/Zillow_Clone#readme"
+}

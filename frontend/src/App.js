@@ -11,6 +11,7 @@ function App() {
       <Route path="/login">
         <LoginFormPage />
       </Route>
+      <p>Home Page</p>
       <Route path="/signup">
         <SignupFormPage />
       </Route>
