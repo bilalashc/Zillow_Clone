@@ -12,6 +12,7 @@ function App() {
         <LoginFormPage />
       </Route>
       <p>Home Page</p>
+      <p>Testing Deployment</p>
       <Route path="/signup">
         <SignupFormPage />
       </Route>
