@@ -11,8 +11,7 @@ function App() {
       <Route path="/login">
         <LoginFormPage />
       </Route>
-      <p>Home Page</p>
-      <p>Testing Deployment</p>
+      <p>Home Page New</p>
       <Route path="/signup">
         <SignupFormPage />
       </Route>
