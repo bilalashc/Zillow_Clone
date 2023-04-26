@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import './LoginForm.css';
+import "./LoginForm.css";
 
-function LoginFormPage() {
+function LoginFormPage({ setOpen }) {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -14,29 +14,38 @@ function LoginFormPage() {
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
+    debugger;
+
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
-      .catch(async (res) => {
-        let data;
-        try {
-          // .clone() essentially allows you to read the response body twice
-          data = await res.clone().json();
-        } catch {
-          data = await res.text(); // Will hit this case if, e.g., server is down
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
+    const session = dispatch(
+      sessionActions.login({ credential, password })
+    ).catch(async (res) => {
+      let data;
+      try {
+        // .clone() essentially allows you to read the response body twice
+        data = await res.clone().json();
+      } catch {
+        data = await res.text(); // Will hit this case if, e.g., server is down
+      }
+      if (data?.errors) setErrors(data.errors);
+      else if (data) setErrors([data]);
+      else setErrors([res.statusText]);
+    });
+    if (session) {
+      setOpen(false);
+    }
+    return session;
   };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
+    <div className="login-form-container">
+      <h1 className="login-form-title">Log In</h1>
+      <form onSubmit={handleSubmit} className="login-form">
+        <ul className="login-form-errors">
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
         </ul>
         <label>
           Email
@@ -56,9 +65,11 @@ function LoginFormPage() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button type="submit" className="login-form-button">
+          Log In
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 

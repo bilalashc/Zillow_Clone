@@ -1,0 +1,11 @@
+.active {
+  border-bottom: 4px solid rgb(0 106 255);
+}
+label {
+  justify-content: flex-start;
+}
+
+a {
+  margin-top: 10px;
+  text-align: center;
+}
