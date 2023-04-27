@@ -10,6 +10,10 @@ validates :password, length: { in: 6..255 }, allow_nil: true
   
 before_validation :ensure_session_token
 
+has_many :listings,
+  foreign_key: :author_id,
+  class_name: :Listing 
+
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : nil
     user = User.find_by(field => credential)
