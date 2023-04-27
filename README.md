@@ -23,12 +23,3 @@ Things you may want to cover:
 
 * ...
 
-
-aws:
-  access_key_id: "AKIAQ62OFOR2PXPHF5NX"
-  secret_access_key: "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"
-   region: "us-west-1"
-  dev:
-    bucket: "zillion-clone-dev"
-  prod:
-    bucket: "zillion-clone-prod"
