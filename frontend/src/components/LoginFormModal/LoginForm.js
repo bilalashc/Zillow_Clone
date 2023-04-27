@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-// import { Input } from "@mui/material";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
 
-function LoginForm({ setOpen }) {
+function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -13,14 +12,9 @@ function LoginForm({ setOpen }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-
     return dispatch(sessionActions.login({ credential, password }))
-      .then(() => {
-        setOpen(false);
-      })
       .catch(async (res) => {
         let data;
-
         try {
           // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
@@ -35,29 +29,32 @@ function LoginForm({ setOpen }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <h2 className="header">Welcome to Willow</h2>
+      <form id="loginform" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
-            <li key={error}>{error}</li>
+            <p className="error"key={error}>{error}</p>
           ))}
         </ul>
-        <label>Email</label>
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-        <label>Password</label>
-
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Submit</button>
-        <a href="">Forgot your password?</a>
+        <label>
+          <span>Email</span>
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          <span>Password</span>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Sign In</button>
       </form>
     </>
   );

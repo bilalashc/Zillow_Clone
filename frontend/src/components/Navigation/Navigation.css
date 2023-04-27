@@ -1,51 +1,133 @@
-/* .container {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  margin: 10px, 25px, 0px, 25px;
-} */
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  background-color: #f5f5f5;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-.container li {
-  padding: 10px;
-}
-
-.profile-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
 .profile-icon {
-  font-size: 2rem;
-  margin-right: 10px;
+  position: absolute;
+  top: calc(1vh + 10px);
+  right: calc(7.5vw + 10px);
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #0074E4;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.dropdown {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  width: 120px;
-  padding: 10px;
+.profile-icon:hover {
+  text-decoration: underline;
+}
+
+.fa-solid.fa-user-circle {
+  width: 30px;
+  height: 30px;
   background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  line-height: 30px;
+  color: #555;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(3vh + 40px);
+  right: calc(6vw + 40px);
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  list-style: none;
+  margin: 0;
 }
 
-.dropdown-item {
+.profile-dropdown li {
+  margin-bottom: 10px;
+}
+
+.profile-dropdown li:last-child {
+  margin-bottom: 0;
+}
+
+.profile-dropdown a {
+  color: #0074E4;
+  text-decoration: none;
+  display: block;
+  padding: 5px 0;
+}
+
+.profile-dropdown a:hover {
+  background-color: #0074E4;
+  color: #fff;
+}
+
+.profile-dropdown button {
+  display: block;
+  width: 100%;
   padding: 5px;
-  cursor: pointer
+  background-color: transparent;
+  color: #0074E4;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+}
+
+.profile-dropdown button:hover {
+  text-decoration: underline;
+}
+
+.home {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.session-links{
+  position: absolute;
+  top: calc(3vh + 10px);
+  right: calc(8vw + 10px);
+  padding-inline-start: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  z-index: -9999;
+}
+.logo-container {
+  max-width: 250px;
+  z-index: -9999;
+}
+
+.session-links > * {
+  margin-left: 30px;
+
+  
+}
+
+.demo {
+  display: inline-block;
+  color: #000;
+  font-size: 16px;
+  font-family: sans-serif;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.demo:hover {
+  color: #004a7b;
+}
+
+.header{
+  font-family: sans-serif;
+  position: relative;
+    top: 0;
+    bottom: 0;
+    left: 22%;
+    right: 0;
+   
 }
