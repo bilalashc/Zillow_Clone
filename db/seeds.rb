@@ -1,12 +1,12 @@
 require "open-uri"
 
-ApplicationRecord.transaction do 
 
-User.destroy_all   
 Listing.destroy_all
+User.destroy_all   
 
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('listings')
+
 User.create!( 
     email: 'bilal@gmail.com', 
     password: 'ashfaque'
@@ -20,7 +20,7 @@ User.create!(
     }) 
   end
 
-  30.times do
+  12.times do
     Listing.create!(
       address: Faker::Address.street_address,
       street: Faker::Address.street_name,
@@ -38,6 +38,22 @@ User.create!(
     )
   end
 
-  puts "Done!"
-end
+  Listing.all.each_with_index do |listing, index|
+
+      listing.photos.attach(
+        io: URI.open("https://zillion-clone-prod.s3.us-west-1.amazonaws.com/listing%23#{index+1}.jpg"),
+        filename: "listing##{index + 1}.jpg"
+      )
+
+      (1..3).each do |idx|
+        listing.photos.attach(
+          io: URI.open("https://zillion-clone-prod.s3.us-west-1.amazonaws.com/listing%23#{index + 1}-img%23#{idx}.jpg"),
+          filename: "listing##{index + 1}-img##{idx}.jpg"
+        )
+      end
+    end 
+
+  puts "Seeding Completed!"  
+
+
 

@@ -34,7 +34,7 @@ const Listings = () => {
             {listings.map((listing) => (
                 <SwiperSlide>
                     <div key = {listing.id} className="card">
-                        <p>This is a placeholder for images</p>
+                        <img className ="image" src={listing.photos[0]} alt={listing.address}/>
                         <div className="card-body">
                             <h3>${Math.floor(listing.homePrice).toLocaleString()}</h3>
                             <p>{listing.bedrooms} bds | {listing.bathrooms} ba | {listing.listingSize} sqft | {listing.marketStatus}</p>

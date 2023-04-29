@@ -4,6 +4,7 @@
     margin-left: 10%;
     margin-top: 10%;
     margin-right: 10%;
+    display: flex;
 }
 
 .card-body {
@@ -20,5 +21,11 @@
 .card-body p {
     font-size: 12px;
     margin: 0;
+}
+
+.image {
+    height: 100px;
+    width: 200px;
+    display: block;
 }
 

@@ -29,7 +29,7 @@ function LoginForm() {
 
   return (
     <>
-      <h2 className="header">Welcome to Willow</h2>
+      <h2 className="header">Welcome to Zillion!</h2>
       <form id="loginform" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error) => (
