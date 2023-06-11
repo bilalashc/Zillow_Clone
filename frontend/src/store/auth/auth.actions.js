@@ -63,7 +63,7 @@ export const signout = () => async (dispatch) => {
       },
     }).then(() => {
       localStorage.clear();
-      // window.location.href = "/";
+      window.location.href = "/";
       dispatch({ type: SIGNOUT });
     });
   } catch (error) {
