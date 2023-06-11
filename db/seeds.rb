@@ -48,18 +48,18 @@ User.create!(
 
   Listing.all.each_with_index do |listing, index|
 
-      listing.images.attach(
-        io: URI.open("https://zillion-clone-prod.s3.us-west-1.amazonaws.com/listing%23#{index+1}.jpg"),
-        filename: "listing##{index + 1}.jpg"
-      )
+    listing.images.attach(
+      io: URI.open("https://zillion-clone-prod.s3.us-west-1.amazonaws.com/listing%23#{index+1}.jpg"),
+      filename: "listing##{index + 1}.jpg"
+    )
 
-      (1..3).each do |idx|
-        listing.images.attach(
-          io: URI.open("https://zillion-clone-prod.s3.us-west-1.amazonaws.com/listing%23#{index + 1}-img%23#{idx}.jpg"),
-          filename: "listing##{index + 1}-img##{idx}.jpg"
-        )
-      end
-    end 
+    (1..3).each do |idx|
+      listing.images.attach(
+        io: URI.open("https://zillion-clone-prod.s3.us-west-1.amazonaws.com/listing%23#{index + 1}-img%23#{idx}.jpg"),
+        filename: "listing##{index + 1}-img##{idx}.jpg"
+      )
+    end
+  end 
 
   puts "Seeding Completed!"  
 
