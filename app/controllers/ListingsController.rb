@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
       favorite = current_user&.favorites&.exists?(listing_id: listing.id)
       listing.as_json.merge(images: images, favorite: favorite)
     end
-    render json: @listings
+    render json: {listings: @listings, google_api_key: ENV['GOOGLE_API_KEY']}
   end
 
   def show

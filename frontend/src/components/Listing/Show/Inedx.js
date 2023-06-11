@@ -17,7 +17,7 @@ const containerStyle = {
   width: "500px",
   height: "300px",
 };
-const apiKey = ""
+const apiKey = localStorage.getItem("google_api_key")
 
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
@@ -219,7 +219,7 @@ const Show = ({ listing }) => {
             <h1>Mag is loading...</h1>
           ) : (
             <>
-              <h3>Listing Map</h3>
+              <h4>Listing Location on Google Maps</h4>
               <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}

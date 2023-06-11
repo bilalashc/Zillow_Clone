@@ -62,6 +62,7 @@ const AddListing = () => {
     })
       .then((response) => {
         if (response.status === 201) {
+          alert("The Listing Has Been Created Successfully!")
           navigate("/");
 
           // Handle successful creation of Listing

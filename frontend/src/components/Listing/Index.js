@@ -57,8 +57,10 @@ const Listing = () => {
   const fetchListings = async () => {
     const response = await axios.get(`${BASE_URL}/listings`);
     if (response.status === 200) {
-      localStorage.setItem("listings", JSON.stringify(response.data));
-      setListings(response.data);
+      localStorage.setItem("listings", JSON.stringify(response.data.listings));
+      localStorage.setItem("google_api_key", JSON.stringify(response.data.google_api_key));
+
+      setListings(response.data.listings);
     }else if(response.status === 401){
       localStorage.removeItem('authorization')
       navigate('/')

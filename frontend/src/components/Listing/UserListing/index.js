@@ -115,7 +115,7 @@ const UserList = () => {
       <Header />
       <div style={{ padding: "3rem" }}>
         <div>
-          <h3>User List </h3>
+          <h3>My Listings</h3>
         </div>
         <div style={{ marginTop: "2rem" }}>
           <TableContainer component={Paper}>
