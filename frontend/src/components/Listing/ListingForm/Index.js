@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 function ListingForm({
   formData,
@@ -7,6 +7,7 @@ function ListingForm({
   handleSubmit,
   text,
 }) {
+
   return (
     <>
       <form
@@ -174,8 +175,10 @@ function ListingForm({
             />
           </div>
         </div>
-        <button type="submit">{text}</button>
+        {/* <button onClick={searchAddress}>{text}</button> */}
       </form>
+
+     
     </>
   );
 }
