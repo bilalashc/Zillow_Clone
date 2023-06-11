@@ -17,7 +17,7 @@ const containerStyle = {
   width: "500px",
   height: "300px",
 };
-const apiKey = process.env.GOOGLE_API_KEY
+const apiKey = ""
 
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));

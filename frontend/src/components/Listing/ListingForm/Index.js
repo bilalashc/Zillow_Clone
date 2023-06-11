@@ -175,7 +175,7 @@ function ListingForm({
             />
           </div>
         </div>
-        {/* <button onClick={searchAddress}>{text}</button> */}
+        <button type="submit">{text}</button>
       </form>
 
      
