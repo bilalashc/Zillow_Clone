@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import ProfileButton from "./ProfileButton";
-import log from "../Auth/Tabs/Index";
+import Signup from "../Auth/Tabs/Index";
 import { useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -89,7 +89,7 @@ function Header() {
             aria-describedby="modal-modal-description"
           >
             <Box sx={style}>
-              <log />
+              <Signup />
             </Box>
           </Modal>
         </div>
