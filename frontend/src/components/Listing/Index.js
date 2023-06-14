@@ -15,10 +15,10 @@ import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import UpdateListing from "./ListingForm/UpdateListing";
 import Card from "../Card";
 import { BASE_URL } from "../../helper/variable";
+import Footer from "../Footer/Footer";
 
 const style = {
   position: "absolute",
@@ -224,6 +224,7 @@ const Listing = () => {
           <Show listing={selectedListing}></Show>
         </Box>
       </Modal>
+      <Footer/>
     </>
   );
 };

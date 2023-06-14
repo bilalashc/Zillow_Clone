@@ -16,7 +16,7 @@ import { Box, Button } from "@mui/material";
 import Modal from "@mui/material/Modal";
 import UpdateListing from "../ListingForm/UpdateListing";
 import Show from "../Show/Inedx";
-
+import Footer from "../../Footer/Footer"
 const style = {
   position: "absolute",
   top: "50%",
@@ -204,6 +204,7 @@ const UserList = () => {
           <Show listing={selectedListing}></Show>
         </Box>
       </Modal>
+      <Footer/>
     </>
   );
 };

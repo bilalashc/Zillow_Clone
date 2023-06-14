@@ -25,10 +25,9 @@ export const signin = (credential, password) => async (dispatch) => {
 
     })
     .catch ((error) =>{
-      alert(error.message)
+      alert("Wrong username or Password: Please enter the correct credentials")
     })
   } catch (error) {
-    debugger
     alert(error.message)
   }
 };

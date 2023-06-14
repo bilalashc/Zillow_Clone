@@ -133,24 +133,6 @@ const Show = ({ listing }) => {
               alt={listing?.address}
             />
           </div>
-          <div className="favorite">
-            <FavoriteBorderIcon
-              htmlColor={listing?.favorite ? "red" : "gray"}
-            />
-            Save
-          </div>
-          <div className="favorite">
-            <FaShare color={listing?.favorite ? "red" : "#55acfe"} /> Share
-          </div>
-          <div className="favorite">
-            <FaRegQuestionCircle
-              color={listing?.favorite ? "red" : "#55acfe"}
-            />{" "}
-            Hide
-          </div>
-          <div className="favorite">
-            <FaEllipsisH color={listing?.favorite ? "red" : "#55acfe"} /> More
-          </div>
         </div>
         <hr />
         <div>

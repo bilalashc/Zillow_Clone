@@ -16,7 +16,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, Button } from "@mui/material";
 import Show from "../Listing/Show/Inedx";
 import Modal from "@mui/material/Modal";
-
+import Footer from "../Footer/Footer";
 const style = {
   position: "absolute",
   top: "50%",
@@ -172,6 +172,7 @@ const Favorite = () => {
           <Show listing={selectedListing}></Show>
         </Box>
       </Modal>
+      <Footer/>
 
     </>
   );

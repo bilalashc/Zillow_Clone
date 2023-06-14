@@ -1,0 +1,12 @@
+.footer_container{
+    background-color: #e0dede;
+    padding: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer_company_details{
+    width: 300px;
+}
+.footer_about{
+    width: 800px;
+}

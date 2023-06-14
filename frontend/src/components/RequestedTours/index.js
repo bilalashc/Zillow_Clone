@@ -13,7 +13,7 @@ import Header from "../Header/Index";
 import { Button } from "@mui/base";
 import axios from "axios";
 import { BASE_URL } from "../../helper/variable";
-
+import Footer from "../Footer/Footer";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -116,6 +116,7 @@ export default function RequestTours() {
         </TableContainer>
       </div>
     </div>
+    <Footer/>
     </>
   );
 }
