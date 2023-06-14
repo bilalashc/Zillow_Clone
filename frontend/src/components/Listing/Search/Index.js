@@ -17,7 +17,7 @@ const Search = () => {
           justifyContent: "space-between",
         }}
       >
-        {listings ? (
+        {listings.length > 0 && listings ? (
           <List listings={listings}></List>
         ) : (
           <>

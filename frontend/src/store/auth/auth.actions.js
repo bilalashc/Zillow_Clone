@@ -16,14 +16,20 @@ export const signin = (credential, password) => async (dispatch) => {
         },
       },
     }).then((response) => {
+      debugger
       localStorage.setItem("authorization", response.headers.authorization);
       localStorage.setItem("current_user", JSON.stringify(response.data.user));
       dispatch({ type: SIGNIN_SUCCESS, payload: response });
       console.log("handleDemoLogin");
-      window.location.reload();
-    });
+      window.location.href = "/";
+
+    })
+    .catch ((error) =>{
+      alert(error.message)
+    })
   } catch (error) {
-    console.log("loginGoogle", error);
+    debugger
+    alert(error.message)
   }
 };
 
@@ -45,10 +51,13 @@ export const signup = (email, password) => async (dispatch) => {
         JSON.stringify(response.data.status.data)
       );
       dispatch({ type: SIGNIN_SUCCESS, payload: response });
-      window.location.reload();
-    });
+      window.location.href = "/";
+    })
+    .catch ((error) =>{
+      alert(error.message)
+    })
   } catch (error) {
-    console.log("Sign Up error", error);
+    alert(error.message)
   }
 };
 
@@ -65,8 +74,12 @@ export const signout = () => async (dispatch) => {
       localStorage.clear();
       window.location.href = "/";
       dispatch({ type: SIGNOUT });
-    });
+    })
+    .catch ((error) =>{
+      alert(error.message)
+    })
   } catch (error) {
+    alert(error.message)
     console.log("signout Error", error);
   }
 };

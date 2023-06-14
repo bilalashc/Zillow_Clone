@@ -15,7 +15,7 @@ User.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('users')
 ApplicationRecord.connection.reset_pk_sequence!('listings')
 
-User.create!( 
+user = User.create!( 
     email: 'bilal@gmail.com', 
     password: 'ashfaque'
 )
@@ -29,7 +29,7 @@ User.create!(
   end
 
   12.times do
-    Listing.create!(
+    listing = Listing.create!(
       address: Faker::Address.street_address,
       street: Faker::Address.street_name,
       city: 'San Francisco',
@@ -42,9 +42,12 @@ User.create!(
       bedrooms: Faker::Number.between(from: 1, to: 6),
       bathrooms: Faker::Number.between(from: 1, to: 6),
       listing_size: Faker::Number.between(from: 1000, to: 10000),
-      user: User.all.sample
+      user_id: user.id
     )
+    Favorite.create(user_id: user.id, listing_id: listing.id)
   end
+
+
 
   Listing.all.each_with_index do |listing, index|
 

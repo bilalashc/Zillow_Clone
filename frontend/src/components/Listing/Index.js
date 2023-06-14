@@ -58,19 +58,22 @@ const Listing = () => {
     const response = await axios.get(`${BASE_URL}/listings`);
     if (response.status === 200) {
       localStorage.setItem("listings", JSON.stringify(response.data.listings));
-      localStorage.setItem("google_api_key", JSON.stringify(response.data.google_api_key));
+      localStorage.setItem(
+        "google_api_key",
+        JSON.stringify(response.data.google_api_key)
+      );
 
       setListings(response.data.listings);
-    }else if(response.status === 401){
-      localStorage.removeItem('authorization')
-      navigate('/')
+    } else if (response.status === 401) {
+      localStorage.removeItem("authorization");
+      navigate("/");
     }
   };
 
   const handleUpdate = () => {
     setOpenUpdate(false);
     fetchListings();
-  }
+  };
 
   useEffect(() => {
     fetchListings();
@@ -84,11 +87,7 @@ const Listing = () => {
   const handleSearch = async () => {
     const res = await axios(`${BASE_URL}/listings/search?q=${search}`);
     localStorage.setItem("searched_listings", JSON.stringify(res.data));
-    if(res.data.length > 0){
-      navigate('/Search');
-    }else{
-      alert("No matched result")
-    }
+    navigate("/Search");
   };
 
   const handleDelete = async (listing) => {
@@ -98,15 +97,16 @@ const Listing = () => {
         Authorization: localStorage.getItem("authorization"),
         "Content-Type": "application/json",
       },
-    }).then((res) => console.log(res))
-    .catch((err) => alert(err.message))
-    alert("This Listing Has Been Successfully Deleted!")
-    fetchListings()
+    })
+      .then((res) => console.log(res))
+      .catch((err) => alert(err.message));
+    alert("This Listing Has Been Successfully Deleted!");
+    fetchListings();
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      handleSearch()
+    if (event.key === "Enter") {
+      handleSearch();
     }
   };
 
@@ -136,12 +136,11 @@ const Listing = () => {
           <h1>Find it. Tour it. Own it.</h1>
           <div className="container__searchbar">
             <input
-              style={{width: "100%"}}
+              style={{ width: "100%" }}
               type="text"
               placeholder="Enter an address, neighborhood, city or zipcode"
               onChange={(e) => handleSearchChange(e)}
               onKeyDown={handleKeyDown}
-              
             />
             <div className="container__searchbar__icon">
               <Button onClick={handleSearch}>
