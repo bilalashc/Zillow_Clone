@@ -21,7 +21,7 @@ function SignIn() {
     e.preventDefault();
     setErrors([]);
     if(email == null || password == null){
-      alert("Information is missing")
+      alert("Incorrect Information, please enter the correct information")
     }else{
       dispatch(signin(email, password));
     }

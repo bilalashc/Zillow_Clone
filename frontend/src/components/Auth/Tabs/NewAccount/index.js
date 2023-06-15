@@ -8,16 +8,16 @@ import { signup } from "../../../../store/auth/auth.actions";
 
 function NewAmount() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [confirmPassword, setConfirmPassword] = useState(null);
   const [errors, setErrors] = useState([]);
   const [value, setValue] = React.useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if(password == null || confirmPassword == null || email == null){
-      alert("Information is missing please enter the correct information!")
+      alert("Incorrect Information, please enter the correct information")
     }else{
       if (password === confirmPassword) {
         dispatch(signup(email, password));
