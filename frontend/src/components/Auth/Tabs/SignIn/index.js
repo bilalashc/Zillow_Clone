@@ -10,8 +10,8 @@ import "./SignIn.css";
 function SignIn() {
   const dispatch = useDispatch();
   const sessionUser = "";
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
@@ -20,7 +20,11 @@ function SignIn() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    dispatch(signin(email, password));
+    if(email == null || password == null){
+      alert("Information is missing")
+    }else{
+      dispatch(signin(email, password));
+    }
   };
 
 

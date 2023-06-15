@@ -145,7 +145,7 @@ const Favorite = () => {
                   <StyledTableCell style={{ cursor: "pointer" }} align="left" onClick={() => handleListingClick(row)}>${Math.floor(row?.home_price).toLocaleString()}</StyledTableCell>
                   <StyledTableCell style={{ cursor: "pointer" }} align="left" onClick={() => handleListingClick(row)}>{row.bathrooms}</StyledTableCell>
                   <StyledTableCell style={{ cursor: "pointer" }}  align="left" onClick={() => handleListingClick(row)}>{row?.address}, {row?.city}, {row?.state},{" "} {row?.zipCode}</StyledTableCell>
-                  <StyledTableCell style={{ cursor: "pointer" }}  align="left" onClick={() => handleListingClick(row)}>{row?.listingSize} sqft - Condo for sale</StyledTableCell>
+                  <StyledTableCell style={{ cursor: "pointer" }}  align="left" onClick={() => handleListingClick(row)}>{row?.listing_size} sqft</StyledTableCell>
                   <StyledTableCell style={{ cursor: "pointer" }}  align="left">
                     <div style={{ display: "flex" }}>
                       <div>

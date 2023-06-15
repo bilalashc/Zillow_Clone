@@ -100,7 +100,7 @@ const Card = ({
               {listing?.bathrooms} ba{" "}
               <span style={{ borderLeft: "2px solid lightgray" }}></span>{" "}
               <span style={{ marginLeft: "0.3rem" }}></span>
-              {listing?.listingSize} sqft - Condo for sale
+              {listing?.listing_size} sqft
             </p>
             <p
               style={{ color: "black", fontSize: "14px" }}

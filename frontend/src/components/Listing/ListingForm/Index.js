@@ -145,7 +145,7 @@ function ListingForm({
 
         <div className="row">
           <div className="col-sm-6">
-            <label>Rent Estimate:</label>
+            <label>Price Estimate:</label>
 
             <input
               type="text"

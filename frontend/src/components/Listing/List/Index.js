@@ -120,7 +120,7 @@ const List = ({ listings }) => {
               }}
             >
               {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
-              {listing?.listingSize} sqft | {listing?.marketStatus}
+              {listing?.listing_size} sqft | {listing?.marketStatus}
             </p>
             <p
               style={{

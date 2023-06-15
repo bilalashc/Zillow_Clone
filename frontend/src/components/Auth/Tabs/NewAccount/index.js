@@ -16,12 +16,15 @@ function NewAmount() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      dispatch(signup(email, password));
+    if(password == null || confirmPassword == null || email == null){
+      alert("Information is missing please enter the correct information!")
+    }else{
+      if (password === confirmPassword) {
+        dispatch(signup(email, password));
+      }else{
+        alert("Password must be macth!")
+      }
     }
-    return setErrors([
-      "Confirm Password field must be the same as the Password field",
-    ]);
   };
 
   return (

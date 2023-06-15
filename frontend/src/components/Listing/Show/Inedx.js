@@ -147,7 +147,7 @@ const Show = ({ listing }) => {
             }}
           >
             {listing?.bedrooms} bds | {listing?.bathrooms} ba |{" "}
-            {listing?.listingSize} sqft | {listing?.marketStatus}
+            {listing?.listing_size} sqft | {listing?.marketStatus}
           </span>
           <p>
             <strong>Address:</strong> {listing?.address}, {listing?.city},{" "}

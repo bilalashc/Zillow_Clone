@@ -10,21 +10,30 @@ const Search = () => {
   return (
     <>
       <Header />
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-        }}
-      >
-        {listings.length > 0 && listings ? (
+
+      {listings.length > 0 && listings ? (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+          }}
+        >
           <List listings={listings}></List>
-        ) : (
-          <>
-            <h2>No result found</h2>
-          </>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            padding: "105px",
+            background: "gainsboro"
+          }}
+        >
+          <h2>No result found</h2>
+        </div>
+      )}
     </>
   );
 };
