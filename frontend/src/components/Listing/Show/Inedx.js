@@ -24,7 +24,7 @@ const Show = ({ listing }) => {
 
   const address = useMemo(
     () =>
-      `${listing.address}, ${listing.street}, ${listing.city}, ${listing.state} `
+      `${listing.address}, ${listing.street}, ${listing.city} ${listing.state}, USA `
   , [listing]);
   const [center, setCenter] = useState({ lat: 37.773972, lng: -122.431297});
   const imagesHeight =
@@ -39,7 +39,7 @@ const Show = ({ listing }) => {
   const getCoordinates = async () => {
     try {
       const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${(
           address
         )}&key=${apiKey}`
       );
