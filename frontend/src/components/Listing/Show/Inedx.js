@@ -52,7 +52,7 @@ const Show = ({ listing }) => {
     }
   };
 
-  useEffect(() => getCoordinates, []);
+  useEffect(() => getCoordinates(), []);
   return (
     <div
       style={{
