@@ -31,6 +31,175 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 + Zillion features a favorite feature. Users can add and remove a listing from their favorites by clicking on the "heart" icon on the listing. Users must be logged in to use the favorites feature. 
 
 **Search**
-+ Users can also search for listings via the search bar. It is not required to log in to use the search feature. A user can search listings based on the listing's address, city and state. 
++ Users can also search for listings via the search bar. It is not required to log in to use the search feature. A user can search listings based on the listing's address, city and state.
+
+**Google Maps**
++ The application leverages Google Maps API to precisely showcase the geographical positioning of listings.
+
+**Tours**
++ Users have the ability to submit tour requests and subsequently grant approval based on specific dates and times.
 
 ## Code Snippets
+
++ The following is a snippet of the code for creating a new listing.
+```javascript
+const AddListing = () => {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    home_type: "",
+    address: "",
+    street: "",
+    city: "",
+    state: "",
+    zip_code: "",
+    bedrooms: "",
+    bathrooms: "",
+    listing_size: "",
+    home_price: "",
+    rent_estimate: "",
+    home_overview: "",
+    images: [],
+  });
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleImageChange = (event) => {
+    const { name, files } = event.target;
+    setFormData({ ...formData, [name]: files });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // handle form submission
+    const reqData = new FormData();
+    reqData.append("listing[home_type]", formData.home_type);
+    reqData.append("listing[address]", formData.address);
+    reqData.append("listing[street]", formData.street);
+    reqData.append("listing[city]", formData.city);
+    reqData.append("listing[state]", formData.state);
+    reqData.append("listing[zip_code]", formData.zip_code);
+    reqData.append("listing[bedrooms]", formData.bedrooms);
+    reqData.append("listing[bathrooms]", formData.bathrooms);
+    reqData.append("listing[listing_size]", formData.listing_size);
+    reqData.append("listing[home_price]", formData.rent_estimate);
+    reqData.append("listing[rent_estimate]", formData.rent_estimate);
+    reqData.append("listing[home_overview]", formData.home_overview);
+    for (let i = 0; i < formData.images.length; i += 1) {
+      reqData.append("listing[images][]", formData.images[i]);
+    }
+
+
+    axios(`${BASE_URL}/listings`, {
+      method: "POST",
+      headers: { Authorization: localStorage.getItem("authorization") },
+      data: reqData,
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          alert("The Listing Has Been Created Successfully!")
+          navigate("/");
+
+          // Handle successful creation of Listing
+        } else {
+          throw new Error("Failed to create Listing");
+        }
+      })
+      .catch((error) => {
+        alert(error.message)
+        // Handle error creating Listing
+      });
+  };
+  
+  return (
+    <>
+     <Header />
+      <ListingForm
+      formData={formData}
+      handleInputChange={handleInputChange}
+      handleImageChange={handleImageChange}
+      handleSubmit={handleSubmit}
+      text="Submit"
+    />
+    </>
+  );
+};
+
+```
+
++ The following is a snippet of the code that allows the user to add or remove a listing to their favorites. 
+```javascript
+  const addFavorite = async (listing) => {
+    const reqData = new FormData();
+    reqData.append("favorite[listing_id]", listing?.id);
+
+    axios(`${BASE_URL}/favorites`, {
+      method: "POST",
+      headers: {
+        Authorization: localStorage.getItem("authorization"),
+        "Content-Type": "application/json",
+      },
+      data: reqData,
+    }).then((res) => {
+      const res1 = listings?.find((list) => list.id === listing.id);
+      if (res1) res1.favorite = !res1.favorite;
+
+      setIsFavourite(listing.favorite);
+    });
+  };
+
+  const deleteFavorite = async (listing) => {
+    const reqData = new FormData();
+    reqData.append("favorite[listing_id]", listing?.id);
+    const response = await axios(`${BASE_URL}/favorites/${listing?.id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: localStorage.getItem("authorization"),
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      const res1 = listings?.find((list) => list.id === listing.id);
+      if (res1) res1.favorite = !res1.favorite;
+
+      setIsFavourite(listing.favorite);
+    });
+  };
+
+  const handleFavorite = (listing) => {
+    if (sessionUser) {
+      if (!listing?.favorite) addFavorite(listing);
+      else {
+        deleteFavorite(listing);
+      }
+      setLoad(!load);
+    } else {
+      alert("Please login to add into favorite");
+    }
+  };
+```
+
++ The following are snippets of code that showcase the implementation of the search feature. 
+```javascript
+ const handleSearch = async () => {
+    const res = await axios(`${BASE_URL}/listings/search?q=${search}`);
+    localStorage.setItem("searched_listings", JSON.stringify(res.data));
+    navigate("/Search");
+  };
+
+   const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+    if (value == "") {
+      debugger;
+      const list = JSON.parse(localStorage.getItem("listings"));
+      setListings(list);
+    }
+  };
+
+```
+
+
+
