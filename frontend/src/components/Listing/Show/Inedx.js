@@ -1,32 +1,31 @@
-import { FaHeart } from "react-icons/fa";
-import {
-  FaShare,
-  FaDiscord,
-  FaRegQuestionCircle,
-  FaEllipsisH,
-} from "react-icons/fa";
 import React, { useState, useMemo, useEffect } from "react";
 import Modal from "./Modal/index";
 import "./Show.css";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { Button } from "@mui/material";
-import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
-import axios from "axios";
+import {
+  GoogleMap,
+  MarkerF,
+  useLoadScript,
+} from "@react-google-maps/api";
+import Geocode from "react-geocode";
 
 const containerStyle = {
   width: "500px",
   height: "300px",
 };
-const apiKey = JSON.parse(localStorage.getItem("google_api_key"))
+
+const apiKey = JSON.parse(localStorage.getItem("google_api_key"));
+Geocode.setApiKey(apiKey);
 
 const Show = ({ listing }) => {
   const sessionUser = JSON.parse(localStorage.getItem("current_user"));
 
   const address = useMemo(
     () =>
-      `${listing.address}, ${listing.city},  ${listing.state} ${listing.zip_code}`
-  , [listing]);
-  const [center, setCenter] = useState({ lat: 0, lng: 0});
+      `${listing.address}, ${listing.city},  ${listing.state} ${listing.zip_code}`,
+    [listing]
+  );
+  const [center, setCenter] = useState({ lat: 0, lng: 0 });
   const imagesHeight =
     listing.images && listing.images.length > 1
       ? { height: "35%" }
@@ -36,23 +35,20 @@ const Show = ({ listing }) => {
     googleMapsApiKey: apiKey,
   });
 
-  const getCoordinates = async () => {
-    try {
-      const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${(
-          address
-        )}&key=${apiKey}`
-      );
-      if (response.data.results.length > 0) {
-        const { lat, lng } = response.data.results[0].geometry.location;
+  const handleGeocode = () => {
+    Geocode.fromAddress(address)
+      .then((response) => {
+        const { lat, lng } = response.results[0].geometry.location;
         setCenter({ lat: lat, lng: lng });
-      }
-    } catch (error) {
-      console.log("Error:", error);
-    }
+      })
+      .catch((error) => {
+        console.log("Error geocoding address:", error);
+      });
   };
 
-  useEffect(() => getCoordinates(), []);
+  useEffect(() => handleGeocode()
+  ,[]);
+
   return (
     <div
       style={{
@@ -150,8 +146,8 @@ const Show = ({ listing }) => {
             {listing?.listing_size} sqft | {listing?.marketStatus}
           </span>
           <p>
-            <strong>Address:</strong> {listing?.address}, {listing?.city}
-            {" "}, {listing?.state}{" "} {listing?.zip_code}
+            <strong>Address:</strong> {listing?.address}, {listing?.city} ,{" "}
+            {listing?.state} {listing?.zip_code}
           </p>
           <div className="Saleing__container">
             <div className="Saleing__container__list" />
@@ -207,10 +203,7 @@ const Show = ({ listing }) => {
                 center={center}
                 zoom={13}
               >
-                <MarkerF
-                  position={center}
-                  
-                />
+                <MarkerF position={center} />
               </GoogleMap>
             </>
           )}
