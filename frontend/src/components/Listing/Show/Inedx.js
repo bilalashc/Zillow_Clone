@@ -24,7 +24,7 @@ const Show = ({ listing }) => {
 
   const address = useMemo(
     () =>
-      `${listing.address}, ${listing.street}, ${listing.city} ${listing.state}, USA `
+      `${listing.address}, ${listing.city},  ${listing.state} ${listing.zip_code}`
   , [listing]);
   const [center, setCenter] = useState({ lat: 37.773972, lng: -122.431297});
   const imagesHeight =
@@ -150,8 +150,8 @@ const Show = ({ listing }) => {
             {listing?.listing_size} sqft | {listing?.marketStatus}
           </span>
           <p>
-            <strong>Address:</strong> {listing?.address}, {listing?.city},{" "}
-            {listing?.state}, {listing?.zipCode}
+            <strong>Address:</strong> {listing?.address}, {listing?.city}
+            {" "}, {listing?.state}{" "} {listing?.zip_code}
           </p>
           <div className="Saleing__container">
             <div className="Saleing__container__list" />
