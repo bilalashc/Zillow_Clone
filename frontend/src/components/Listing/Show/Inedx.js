@@ -26,7 +26,7 @@ const Show = ({ listing }) => {
     () =>
       `${listing.address}, ${listing.city},  ${listing.state} ${listing.zip_code}`
   , [listing]);
-  const [center, setCenter] = useState({ lat: 37.773972, lng: -122.431297});
+  const [center, setCenter] = useState({ lat: 0, lng: 0});
   const imagesHeight =
     listing.images && listing.images.length > 1
       ? { height: "35%" }
