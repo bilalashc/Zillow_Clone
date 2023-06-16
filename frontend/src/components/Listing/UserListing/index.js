@@ -151,7 +151,7 @@ const UserList = () => {
                       {row.bathrooms}
                     </StyledTableCell>
                     <StyledTableCell style={{ cursor: "pointer" }} align="left" onClick={() => handleListingClick(row)}>
-                      {row?.address}, {row?.city}, {row?.state}, {row?.zipCode}
+                      {row?.address}, {row?.city}, {row?.state}, {row?.zip_code}
                     </StyledTableCell>
                     <StyledTableCell style={{ cursor: "pointer" }} align="left" onClick={() => handleListingClick(row)}>
                       {row?.listingSize} sqft - Condo for sale

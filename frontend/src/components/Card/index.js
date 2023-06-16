@@ -107,7 +107,7 @@ const Card = ({
               className="card-body-info-address"
             >
               {listing?.address}, {listing?.city}, {listing?.state},{" "}
-              {listing?.zipCode}
+              {listing?.zip_code}
             </p>
             <span
               style={{
