@@ -38,7 +38,7 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 
 **Tours**
 + Users have the ability to submit tour requests and subsequently grant approval based on specific dates and times.
-![default text](https://imgur.com/a/CxZBtV7)
+![](https://imgur.com/a/CxZBtV7)
 
 ## Code Snippets
 
