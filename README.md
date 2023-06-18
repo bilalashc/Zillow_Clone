@@ -23,9 +23,11 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 ## Features
 **User Authentication: Login/Sign up** 
 + Zillion has a user authentication system. It includes a demo user login, creating a new account, and error handling for incorrect entries. Users are required to login when trying to create and update a listing. It is also required to add a listing to favorites. 
+![UserAuthentication](https://github.com/bilalashc/Zillow_Clone/assets/122466002/c0ea4a18-82a9-4848-ba3e-75367fc35c69)
 
 **Listings**
 + Zillion features a listings index page on the home page, along with a show page for each listing. Users can view listing details and sell their own listing. Users must be logged in to create/edit/delete their own listing. Users can create and sell multiple listings. 
+![ListingShow](https://github.com/bilalashc/Zillow_Clone/assets/122466002/1bd774bc-49f5-470e-955f-3e46d4e5ad79)
 
 **Favorites**
 + Zillion features a favorite feature. Users can add and remove a listing from their favorites by clicking on the "heart" icon on the listing. Users must be logged in to use the favorites feature. 
@@ -33,6 +35,7 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 
 **Search**
 + Users can also search for listings via the search bar. It is not required to log in to use the search feature. A user can search listings based on the listing's address, city and state.
+![Search](https://github.com/bilalashc/Zillow_Clone/assets/122466002/2b039274-f0b7-48cc-9ffb-e624b7f9bf52)
 
 **Google Maps**
 + The application leverages Google Maps API to precisely showcase the geographical positioning of listings.
