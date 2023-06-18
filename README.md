@@ -29,6 +29,7 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 
 **Favorites**
 + Zillion features a favorite feature. Users can add and remove a listing from their favorites by clicking on the "heart" icon on the listing. Users must be logged in to use the favorites feature. 
+![Favorites](https://github.com/bilalashc/Zillow_Clone/assets/122466002/ee463fb4-646a-471a-a11b-ad5149676f55)
 
 **Search**
 + Users can also search for listings via the search bar. It is not required to log in to use the search feature. A user can search listings based on the listing's address, city and state.
@@ -38,8 +39,7 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 
 **Tours**
 + Users have the ability to submit tour requests and subsequently grant approval based on specific dates and times.
-![RequestTour](https://github.com/bilalashc/Zillow_Clone/assets/122466002/f7d36133-e7e3-4e84-9d1b-dcea4db22823)
-
+![RequestTour](https://github.com/bilalashc/Zillow_Clone/assets/122466002/5d738c52-7fa0-4d41-9a48-bb005d07c2d8)
 
 ## Code Snippets
 
