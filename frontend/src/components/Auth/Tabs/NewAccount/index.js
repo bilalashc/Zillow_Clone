@@ -16,14 +16,14 @@ function NewAmount() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(password == null || confirmPassword == null || email == null){
-      alert("Incorrect Information, please enter the correct information")
-    }else{
-      if (password === confirmPassword) {
-        dispatch(signup(email, password));
-      }else{
-        alert("Password must be macth!")
-      }
+    if(password == null || confirmPassword == null){
+      alert("Please enter your password")
+    }else if (password != confirmPassword){
+      alert("Password must be macth!")
+    }else if(email == null){
+      alert("Email is empty!")
+    }if(email != null && password === confirmPassword){
+      dispatch(signup(email, password));
     }
   };
 

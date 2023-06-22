@@ -47,9 +47,10 @@ const AddListing = () => {
     reqData.append("listing[bedrooms]", formData.bedrooms);
     reqData.append("listing[bathrooms]", formData.bathrooms);
     reqData.append("listing[listing_size]", formData.listing_size);
-    reqData.append("listing[home_price]", formData.rent_estimate);
+    reqData.append("listing[home_price]", formData.home_price);
     reqData.append("listing[rent_estimate]", formData.rent_estimate);
     reqData.append("listing[home_overview]", formData.home_overview);
+  
     for (let i = 0; i < formData.images.length; i += 1) {
       reqData.append("listing[images][]", formData.images[i]);
     }

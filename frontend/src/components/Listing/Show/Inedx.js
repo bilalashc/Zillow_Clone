@@ -22,10 +22,11 @@ const Show = ({ listing }) => {
 
   const address = useMemo(
     () =>
-      `${listing.address}, ${listing.city},  ${listing.state} ${listing.zip_code}`,
+      `${listing?.address}, ${listing?.city},  ${listing?.state} ${listing?.zip_code}`,
     [listing]
   );
-  const [center, setCenter] = useState({ lat: 0, lng: 0 });
+
+  const [center, setCenter] = useState({ lat: 51.576525, lng: -0.1537649});
   const imagesHeight =
     listing.images && listing.images.length > 1
       ? { height: "35%" }
@@ -36,6 +37,7 @@ const Show = ({ listing }) => {
   });
 
   const handleGeocode = () => {
+    if(address){
     Geocode.fromAddress(address)
       .then((response) => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -44,6 +46,7 @@ const Show = ({ listing }) => {
       .catch((error) => {
         console.log("Error geocoding address:", error);
       });
+    }
   };
 
   useEffect(() => handleGeocode()

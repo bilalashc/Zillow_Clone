@@ -16,7 +16,6 @@ export const signin = (credential, password) => async (dispatch) => {
         },
       },
     }).then((response) => {
-      debugger
       localStorage.setItem("authorization", response.headers.authorization);
       localStorage.setItem("current_user", JSON.stringify(response.data.user));
       dispatch({ type: SIGNIN_SUCCESS, payload: response });

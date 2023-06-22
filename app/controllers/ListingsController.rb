@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
       favorite = current_user&.favorites&.exists?(listing_id: listing.id)
       listing.as_json.merge(images: images, favorite: favorite)
     end
-    render json: {listings: @listings, google_api_key: ENV['GOOGLE_API_KEY']}
+    render json: {listings: @listings, google_api_key: "AIzaSyBc5HVEqSJnOYU2bNY8CxUIAaaGDIp51Jk"}
   end
 
   def show
@@ -23,9 +23,10 @@ class ListingsController < ApplicationController
       @listing = current_user.listings.new(listing_params)
 
       if @listing.save
-
-        params[:listing][:images].each do |image|
-          @listing.images.attach(image)
+        if params[:listing][:images].present? 
+          params[:listing][:images].each do |image|
+            @listing.images.attach(image)
+          end
         end
         render json: @listing, status: :created
       else
