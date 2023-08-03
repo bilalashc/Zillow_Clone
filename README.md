@@ -14,7 +14,7 @@ This is a full stack website clone of online real estate marketplace, [Zillow](Z
 + React
 + Redux
 + Ruby on Rails
-+ PostgresSQL
++ PostgreSQL
 + HTML/CSS
 + Javascript/Jbuilder/AJAX
 + AWS
